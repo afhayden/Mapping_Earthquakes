@@ -2,7 +2,7 @@
 console.log("working");
 
 // Create the map object with a center and zoom level.
-let map = L.map('mapid').setView([34.0522, -118.2437], 14);
+let map = L.map('mapid').setView([40.7, -94.5], 4);
 
 // Create the map object with a center and zoom level.
 // let map = L.map("mapid", {
@@ -26,18 +26,37 @@ attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap
 //   radius: 100
 // }).addTo(map);
 
-L.circle([34.0522, -118.2437], {
-  radius: 300,
-  fillOpacity: 0.75,
-    color: "black",
-    fillColor: "pink"
-}).addTo(map);
+// L.circle([34.0522, -118.2437], {
+//   radius: 300,
+//   fillOpacity: 0.75,
+//     color: "black",
+//     fillColor: "pink"
+// }).addTo(map);
 
-L.circleMarker([34.0522, -118.2437], {
-  radius: 300,
-  color: "black",
-  fillColor: '#ffffa1'
-}).addTo(map);
+// L.circleMarker([34.0522, -118.2437], {
+//   radius: 300,
+//   color: "black",
+//   fillColor: '#ffffa1'
+// }).addTo(map);
 
 // Then we add our 'graymap' tile layer to the map.
 streets.addTo(map);
+
+// An array containing each city's location, state, and population.
+// Get data from cities.js
+let cityData = cities;
+console.log(cities);
+const numberFormatter = Intl.NumberFormat('en-US');
+
+cityData.forEach(city => {
+  console.log(city);
+  L.circleMarker(city.location, {
+    radius: city.population/200000,
+    weight: 4,
+    fillOpacity: 0.25,
+    color: '#ff9933',
+    fillColor: '#ff9933'
+  }).addTo(map)
+  .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + numberFormatter.format(city.population) + "</h3>")
+  .addTo(map);
+});
