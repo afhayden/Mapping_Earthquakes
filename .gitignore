@@ -1,5 +1,13 @@
-Simple_Map/static/js/config.js
+Earthquake_Challenge/static/js/config.js
+Earthquake_past7days/static/js/config.js
+Mapping_GeoJSAON_Linestrings/static/js/config.js
+Mapping_GeoJSON_Points/static/js/config.js
+Mapping_GeoJSON_Polygons/static/js/config.js
+Mapping_Lines/static/js/config.js
+Mapping_Multiple_Points/static/js/config.js
 Mapping_Single_Points/static/js/config.js
+Simple_Map/static/js/config.js
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
